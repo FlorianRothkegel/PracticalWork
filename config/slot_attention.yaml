@@ -1,0 +1,42 @@
+general:
+  random_seed: 42 #3070 100 1337 0 42
+  verbose: true
+  num_eval_imgs: 320
+
+model:
+  num_slots: 4 # 4 Tetrominoes 6 Multi-dSprites
+  num_slots_iters: 3
+
+
+training:
+  train: True
+  test: True
+  visualize: True
+  evaluate: True
+  epochs: 500000
+  learning_rate: 0.0004
+  restore: False
+  restore_path: ""
+  warmup_steps: 10000
+  decay_rate: 0.5
+  decay_steps: 100000
+  ckpt_interval: 10000
+  n_samples: 4
+
+
+logging:
+  log_dir: "SlotAttention"
+  log_interval: 5000
+
+dataloading:
+  seed: 0
+  img_size: 35 # 35 Tetrominoes, 64 multi-dSprites
+  dataset: "tetrominoes" #"multi_dsprites", "tetrominoes"
+  num_workers: 4
+  K_steps: -1
+  data_folder: "/app/data"
+  dataset_size: 1000000
+  batch_size: 64
+  buffer_size: 128
+  debug: False
+  genesis: False

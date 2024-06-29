@@ -1,0 +1,62 @@
+general:
+  random_seed: 3070 #3070 100 1337 0 42
+  debug: False
+  num_eval_imgs: 320
+
+model:
+  feat_dim: 64
+  kernel: "gaussian" # laplacian, gaussian, epanechnikov
+  semiconv: True
+  dynamic_K: False
+  klm_loss: False
+  detach_mr_in_klm: True
+  K_steps: 4 # 4 Tetrominoes, 6 Multi-dSprites
+  pixel_bound: True
+  autoreg_prior: True
+  pixel_std1: 0.7
+  pixel_std2: 0.7
+
+
+loss:
+  beta: 0.5
+  beta_warmpu: False
+  geco: True
+  g_goal: 0.5655
+  g_lr: 1e-5
+  g_alpha: 0.99
+  g_init: 1.0
+  g_min: 1e-10
+  g_speedup: 10.
+
+
+training:
+  train: False
+  test: False
+  visualize: False
+  evaluate: True
+  epochs: 500000
+  learning_rate: 0.0001
+  restore: True
+  restore_path: "/app/results/GenesisV2_28-06-2024-09-10-37/ckpt_500000.pt"
+  decay_rate: 0.5
+  ckpt_interval: 10000
+  n_samples: 4
+
+
+logging:
+  log_dir: "GenesisV2"
+  log_interval: 5000
+
+dataloading:
+  seed: 0
+  img_size: 32 # 32 Tetrominoes, 64 Multi-dSprites
+  dataset: "tetrominoes" # "multi_dsprites", "tetrominoes"
+  num_workers: 4
+  K_steps: 4 # 4 Tetrominoes, 6 Multi-dSprites
+  data_folder: "/app/data"
+  dataset_size: 1000000
+  batch_size: 32
+  buffer_size: 128
+  debug: False
+  genesis: True
+  
